@@ -1,0 +1,216 @@
+Script started on 2017-10-03 18:52:50-0600
+]0;pgabough@csa3:~/Desktoppgabough@csa3:~/Desktop$ gdb assign1a
+GNU gdb (GDB) Fedora 8.0-13.fc26
+Copyright (C) 2017 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign1a...(no debugging symbols found)...done.
+(gdb) display/i $pc
+1: x/i $pc
+<error: No registers.>
+(gdb) b *main
+Breakpoint 1 at 0x4005f0
+(gdb) r
+Starting program: /home/uga/pgabough/Desktop/assign1a 
+
+Breakpoint 1, 0x00000000004005f0 in main ()
+1: x/i $pc
+=> 0x4005f0 <main>:	stp	x29, x30, [sp, #-16]!
+(gdb) ni
+0x00000000004005f4 in main ()
+1: x/i $pc
+=> 0x4005f4 <main+4>:	mov	x29, sp
+(gdb) ni
+0x00000000004005f8 in main ()
+1: x/i $pc
+=> 0x4005f8 <main+8>:	mov	x19, #0xfffffffffffffffa    	// #-6
+(gdb) ni
+0x00000000004005fc in main ()
+1: x/i $pc
+=> 0x4005fc <main+12>:	mov	x25, #0xfffffffffffffc19    	// #-999
+(gdb) p $x19
+$1 = -6
+(gdb) ni
+0x0000000000400600 in loop_test ()
+1: x/i $pc
+=> 0x400600 <loop_test>:	cmp	x19, #0x5
+(gdb) p $x25
+$2 = -999
+(gdb) ni
+0x0000000000400604 in loop_test ()
+1: x/i $pc
+=> 0x400604 <loop_test+4>:	b.gt	0x40066c <end>
+(gdb) ni
+0x0000000000400608 in loop_top ()
+1: x/i $pc
+=> 0x400608 <loop_top>:	mul	x20, x19, x19
+(gdb) ni
+0x000000000040060c in loop_top ()
+1: x/i $pc
+=> 0x40060c <loop_top+4>:	mov	x21, x20
+(gdb) p $x20
+$3 = 36
+(gdb) ni
+0x0000000000400610 in loop_top ()
+1: x/i $pc
+=> 0x400610 <loop_top+8>:	mul	x20, x20, x19
+(gdb) p $x21
+$4 = 36
+(gdb) ni
+0x0000000000400614 in loop_top ()
+1: x/i $pc
+=> 0x400614 <loop_top+12>:	mov	x26, #0xfffffffffffffffc    	// #-4
+(gdb) p $20
+History has not yet reached $20.
+(gdb) p $x20
+$5 = -216
+(gdb) ni
+0x0000000000400618 in loop_top ()
+1: x/i $pc
+=> 0x400618 <loop_top+16>:	mul	x20, x20, x26
+(gdb) p $x26
+$6 = -4
+(gdb) ni
+0x000000000040061c in loop_top ()
+1: x/i $pc
+=> 0x40061c <loop_top+20>:	mov	x26, #0xffffffffffffffe5    	// #-27
+(gdb) p $x20
+$7 = 864
+(gdb) ni
+0x0000000000400620 in loop_top ()
+1: x/i $pc
+=> 0x400620 <loop_top+24>:	mul	x21, x21, x26
+(gdb) p $x26
+$8 = -27
+(gdb) ni
+0x0000000000400624 in loop_top ()
+1: x/i $pc
+=> 0x400624 <loop_top+28>:	mov	x26, #0x5                   	// #5
+(gdb) p $x21
+$9 = -972
+(gdb) ni
+0x0000000000400628 in loop_top ()
+1: x/i $pc
+=> 0x400628 <loop_top+32>:	mul	x22, x19, x26
+(gdb) p $x26
+$10 = 5
+(gdb) ni
+0x000000000040062c in loop_top ()
+1: x/i $pc
+=> 0x40062c <loop_top+36>:	mov	x23, #0x2d                  	// #45
+(gdb) p $x22
+$11 = -30
+(gdb) ni
+0x0000000000400630 in loop_top ()
+1: x/i $pc
+=> 0x400630 <loop_top+40>:	add	x24, x20, x21
+(gdb) p $x23
+$12 = 45
+(gdb) ni
+0x0000000000400634 in loop_top ()
+1: x/i $pc
+=> 0x400634 <loop_top+44>:	add	x24, x24, x22
+(gdb) p $x24
+$13 = -108
+(gdb) ni
+0x0000000000400638 in loop_top ()
+1: x/i $pc
+=> 0x400638 <loop_top+48>:	add	x24, x24, x23
+(gdb) p $x24
+$14 = -138
+(gdb) ni
+0x000000000040063c in loop_top ()
+1: x/i $pc
+=> 0x40063c <loop_top+52>:	cmp	x24, x25
+(gdb) p $x24
+$15 = -93
+(gdb) ni
+0x0000000000400640 in loop_top ()
+1: x/i $pc
+=> 0x400640 <loop_top+56>:	b.gt	0x400648 <update>
+(gdb) ni
+0x0000000000400648 in update ()
+1: x/i $pc
+=> 0x400648 <update>:	mov	x25, x24
+(gdb) p $x25
+$16 = -999
+(gdb) ni
+0x000000000040064c in print ()
+1: x/i $pc
+=> 0x40064c <print>:	adrp	x0, 0x400000
+(gdb) p $x25
+$17 = -93
+(gdb) ni
+0x0000000000400650 in print ()
+1: x/i $pc
+=> 0x400650 <print+4>:	add	x0, x0, #0x5a4
+(gdb) ni
+0x0000000000400654 in print ()
+1: x/i $pc
+=> 0x400654 <print+8>:	mov	x1, x19
+(gdb) ni
+0x0000000000400658 in print ()
+1: x/i $pc
+=> 0x400658 <print+12>:	mov	x2, x24
+(gdb) ni
+0x000000000040065c in print ()
+1: x/i $pc
+=> 0x40065c <print+16>:	mov	x3, x25
+(gdb) ni
+0x0000000000400660 in print ()
+1: x/i $pc
+=> 0x400660 <print+20>:	bl	0x400490 <printf@plt>
+(gdb) ni
+x: -6 | y: -93 | MAX: -93
+----------------------
+0x0000000000400664 in print ()
+1: x/i $pc
+=> 0x400664 <print+24>:	add	x19, x19, #0x1
+(gdb) ni
+0x0000000000400668 in print ()
+1: x/i $pc
+=> 0x400668 <print+28>:	b	0x400600 <loop_test>
+(gdb) p $x19
+$18 = -5
+(gdb) c
+Continuing.
+x: -5 | y: -155 | MAX: -93
+----------------------
+x: -4 | y: -151 | MAX: -93
+----------------------
+x: -3 | y: -105 | MAX: -93
+----------------------
+x: -2 | y: -41 | MAX: -41
+----------------------
+x: -1 | y: 17 | MAX: 17
+----------------------
+x: 0 | y: 45 | MAX: 45
+----------------------
+x: 1 | y: 19 | MAX: 45
+----------------------
+x: 2 | y: -85 | MAX: 45
+----------------------
+x: 3 | y: -291 | MAX: 45
+----------------------
+x: 4 | y: -623 | MAX: 45
+----------------------
+x: 5 | y: -1105 | MAX: 45
+----------------------
+Absolute maximum: 45
+
+[Inferior 1 (process 11173) exited with code 026]
+(gdb) q
+]0;pgabough@csa3:~/Desktoppgabough@csa3:~/Desktop$ exit
+exit
+
+Script done on 2017-10-03 19:00:13-0600

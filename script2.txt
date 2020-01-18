@@ -1,0 +1,64 @@
+Script started on 2017-10-03 18:43:52-0600
+gd]0;pgabough@csa3:~/Desktoppgabough@csa3:~/Desktop$ gd[K[Kgdb assign1b
+GNU gdb (GDB) Fedora 8.0-13.fc26
+Copyright (C) 2017 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign1b...(no debugging symbols found)...done.
+(gdb) display/i $pc
+1: x/i $pc
+<error: No registers.>
+(gdb) b *end
+Breakpoint 1 at 0x40065c
+(gdb) r
+Starting program: /home/uga/pgabough/Desktop/assign1b 
+x: -6 | y: -93 | MAX: -93
+----------------------
+x: -5 | y: -155 | MAX: -93
+----------------------
+x: -4 | y: -151 | MAX: -93
+----------------------
+x: -3 | y: -105 | MAX: -93
+----------------------
+x: -2 | y: -41 | MAX: -41
+----------------------
+x: -1 | y: 17 | MAX: 17
+----------------------
+x: 0 | y: 45 | MAX: 45
+----------------------
+x: 1 | y: 19 | MAX: 45
+----------------------
+x: 2 | y: -85 | MAX: 45
+----------------------
+x: 3 | y: -291 | MAX: 45
+----------------------
+x: 4 | y: -623 | MAX: 45
+----------------------
+x: 5 | y: -1105 | MAX: 45
+----------------------
+
+Breakpoint 1, 0x000000000040065c in end ()
+1: x/i $pc
+=> 0x40065c <end>:	adrp	x0, 0x400000
+(gdb) p $x25
+$1 = 45
+(gdb) c
+Continuing.
+Absolute maximum: 45
+
+[Inferior 1 (process 9814) exited with code 026]
+(gdb) q
+]0;pgabough@csa3:~/Desktoppgabough@csa3:~/Desktop$ exit
+exit
+
+Script done on 2017-10-03 18:45:31-0600
